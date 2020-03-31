@@ -16,7 +16,7 @@ final class Order
     public const STATUS_SHIPPED = 'shipped';
     public const STATUS_COMPLETED = 'completed';
 
-    private string $id;
+    private OrderId $id;
     private DateTime $createdAt;
     private string $status;
 
@@ -27,7 +27,7 @@ final class Order
 
     private function __construct(OrderId $id, DateTime $createdAt)
     {
-        $this->id = (string) $id;
+        $this->id = $id;
         $this->createdAt = $createdAt;
         $this->status = self::STATUS_CREATED;
         $this->items = new ArrayCollection();
@@ -41,7 +41,7 @@ final class Order
         );
     }
 
-    public function id(): string
+    public function id(): OrderId
     {
         return $this->id;
     }

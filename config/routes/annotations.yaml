@@ -1,3 +1,8 @@
+controllers:
+    resource: ../../src/FruitStore/Infrastructure/UI/Http/Controller/
+    type: annotation
+
 kernel:
     resource: ../../src/Kernel.php
     type: annotation
+

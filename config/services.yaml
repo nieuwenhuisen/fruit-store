@@ -15,4 +15,11 @@ services:
     # this creates a service per class whose id is the fully-qualified class name
     App\:
         resource: '../src/*'
-        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php,Old}'
+        exclude: '../src/{FruitStore/Infrastructure/Persistence/Doctrine/Migrations}'
+
+    # controllers are imported separately to make sure services can be injected
+    # as action arguments even if you don't extend any base controller class
+    App\FruitStore\Infrastructure\UI\Http\Controller\:
+        resource: '../src/FruitStore/Infrastructure/UI/Http/Controller'
+        tags: ['controller.service_arguments']
+
